@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <style>
+   .container{
+    font-family: 'Playball';
+     height: 100vh;
+    background-image: url(static/dms.jpg);
+    background-size: cover;
+    background-position: center;
+     color:rgb(14, 74, 163);
+     font-size: 15px;
+     font-weight: bold;
+       
+     
+ }
+ 
+ form{
+     margin-left: 50px;
+   padding-top: 100px;
+ }
+ #labelAadhar{
+ font-family: Arial, Helvetica, sans-serif; 
+ }
+ input{
+    
+     margin-top:10px;
+ }
+ b{
+    margin-left: 50px;
+     color: orangered;
+     font-size: 30px;
+     font-family: 'Lato', sans-serif;
+ }
+ #Details{
+  font-family: Arial, Helvetica, sans-serif; 
+     margin-left: 50px;
+     color: orangered;
+ }
+ 
+ [type="submit"]{
+  border-radius:7px;
+     background-color: rgb(12, 32, 148);
+     padding: 5px 20px 5px 20px;
+     margin-top: 20px;
+     color:white;
+     text-align: center;
+ }
+ #sd,#myList{
+   color: black;
+   font-family: Arial, Helvetica, sans-serif; 
+   margin-left: 50px;
+   font-weight: bold;
+ }
+ #myList{
+ padding:5px;
+ font-size: 15px;
+ color: rgb(2, 0, 141);
+ }
+ .btn{
+    background-color:orange;
+    padding:4px;
+    border-radius:10px;
+}
+ 
+       </style>
+      <script language="javascript">
+       
+       var count1=0,count2=0,count3=0,count4=0,count5=0,count6=0;
+       function show() {
+       var list=document.getElementById('myList');
+       var listLength=list.length;
+        var listvalue=list.options[list.selectedIndex].value;
+        if(listvalue=='9:00-9:30')
+        {
+          count1++;
+          if( count1>2)
+          {
+            list.remove(list.selectedIndex);
+          }
+        }
+        else if(listvalue=='9:30-10:00')
+        {
+        count2++;
+          if( count2>20)
+          {
+            list.remove(list.selectedIndex);
+          }
+       }
+       else if(listvalue=='10:00-10:30')
+        {
+        count3++;
+          if( count3>20)
+          {
+            list.remove(list.selectedIndex);
+          }
+       }
+       else if(listvalue=='10:30-11:00')
+        {
+        count4++;
+          if( count4>20)
+          {
+            list.remove(list.selectedIndex);
+          }
+       }
+       else if(listvalue=='11:00-11:30')
+        {
+        count5++;
+          if( count5>20)
+          {
+            list.remove(list.selectedIndex);
+          }
+       }
+       else if(listvalue=='11:30-12:00'){
+        count6++;
+          if( count6>20)
+          {
+            list.remove(list.selectedIndex);
+          }
+       }
+       else{
+       if(listLength==1)
+        {
+          alert("Sorry,No Slots Available");
+        }
+      }
+      }
+           
+       </script>
+</head>
+<body>
+   
+
+    <div class="container">
+    <form action='/slots' method = "post">
+        <h1  id="labelAadhar">Aadhaar Card Number : </h1>
+      <input name = "AadhaarNo" type = "text" class="text">
+    <br>
+        <input type = "submit">
+        </form>
+    <div>
+       
+ {% block content %}{% endblock %}
+
+</div>
+
+
+
+<br>
+</div>
+</body>
+</html>
+
+
